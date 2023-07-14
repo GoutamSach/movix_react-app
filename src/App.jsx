@@ -1,3 +1,5 @@
+import "./App.css";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
@@ -12,7 +14,7 @@ import {
   getApiConfigForHomeSlice,
   stateForgetApiConfigForHomeSlice,
 } from "./utils/homeSlice";
-import { fetchDataFromApi } from "./utils/api";
+import fetchDataFromApi from "./utils/api";
 // import { fetchDataFromApi } from "./utils/api";
 
 function App() {
@@ -23,16 +25,15 @@ function App() {
   const selector = useSelector(stateForgetApiConfigForHomeSlice);
 
   const apiTest = () => {
-    fetchDataFromApi("/movie/top_rated").then((res) => {
+    fetchDataFromApi("/movie/popular").then((res) => {
       console.log(res);
-      console.log(process.env.REACT_APP_TMDB_TOKEN);
 
       // dispatch(getApiConfigForHomeSlice(res));
     });
   };
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -50,7 +51,7 @@ function App() {
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
