@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import UseFetch from "../../hook/UseFetch";
+import UseFetch from "../hook/UseFetch";
+import { useSelector } from "react-redux";
+import { stateForgetApiConfigForHomeSlice } from "../utils/homeSlice";
+import LazyLoad from "react-lazy-load";
 
 function HeroBanner() {
   const [bannerImage, setBannerImage] = useState("");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  const selector = useSelector(stateForgetApiConfigForHomeSlice);
 
+  const { data } = UseFetch("/movie/upcoming");
   useEffect(() => {
-    // const { data, loading } = UseFetch("/movie/top_rated");
-    // UseFetch("/movie/upcoming");
-  }, []);
+    const bg =
+      selector.backdrop +
+      data?.results[Math.floor(Math.random() * 20)].backdrop_path;
+    setBannerImage(bg);
+    // console.log(bg);
+  }, [data]);
 
   const searchQuerySubmitButton = () => {
     if (query === "") {

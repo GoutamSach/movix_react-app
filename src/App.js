@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import SearchResults from "./pages/SearchResults";
@@ -13,7 +13,6 @@ import {
   stateForgetApiConfigForHomeSlice,
 } from "./utils/homeSlice";
 import { fetchDataFromApi } from "./utils/api";
-// import { fetchDataFromApi } from "./utils/api";
 
 function App() {
   useEffect(() => {
@@ -23,11 +22,14 @@ function App() {
   const selector = useSelector(stateForgetApiConfigForHomeSlice);
 
   const apiTest = () => {
-    fetchDataFromApi("/movie/top_rated").then((res) => {
-      console.log(res);
-      console.log(process.env.REACT_APP_TMDB_TOKEN);
-
-      // dispatch(getApiConfigForHomeSlice(res));
+    fetchDataFromApi("/configuration").then((res) => {
+      const url = {
+        backdrop: res.images.base_url + "original",
+        poster: res.images.base_url + "original",
+        profile: res.images.base_url + "original",
+      };
+      dispatch(getApiConfigForHomeSlice(url));
+      // console.log(res);
     });
   };
 
