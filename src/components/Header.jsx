@@ -1,31 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContentWrapper from "./ContentWrapper";
 import movix from "../image/movix.svg";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
 
 function Header() {
   const [mobileState, setMobileState] = useState(false);
+  const [lastScroll, setLastScroll] = useState(0);
+  const [headerHide, setHeaderHide] = useState(false);
+
   const navigate = useNavigate();
 
-  const searchStringMovie = () => {
-    navigate("explore/movie");
-  };
-  const searchStringTv = () => {
-    navigate("explore/tv");
-  };
+  function headerHideOnScroll() {
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScroll) {
+        setHeaderHide(true);
+      } else {
+        setHeaderHide(false);
+      }
+    }
+    setLastScroll(window.scrollY);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", headerHideOnScroll);
+    return () => {
+      window.removeEventListener("scroll", headerHideOnScroll);
+    };
+  }, [lastScroll]);
 
   return (
     <header className="">
-      <div className="w-full h-[60px] static   bg-black  bg-opacity-30">
+      <div
+        className={`w-full h-[60px] fixed  transform duration-300    bg-black  bg-opacity-30 backdrop-blur-sm  ${
+          headerHide && "    -translate-y-24 ease-in-out  duration-300"
+        }`}
+      >
         <div className=" ">
           <div
-            className={`absolute w-full h-[120px] bg-[#04152d] -top-[120px]
+            className={`absolute w-full z-50 h-[120px] bg-[#04152d] -top-[120px]
               
-              ${mobileState && "top-[0] transform duration-300"}`}
+              ${mobileState && "-top-[0px] transform duration-300"}`}
           >
             <div className=" text-white">
               <ContentWrapper>
@@ -51,7 +67,6 @@ function Header() {
                     <p
                       onClick={() => {
                         navigate("explore/movie");
-                        setMobileState(false);
                       }}
                       className=" cursor-pointer hover:text-[#dc385f]  "
                     >
@@ -60,7 +75,6 @@ function Header() {
                     <p
                       onClick={() => {
                         navigate("explore/movie");
-                        setMobileState(false);
                       }}
                       className=" cursor-pointer hover:text-[#dc385f] "
                     >
@@ -89,11 +103,10 @@ function Header() {
                     className=" cursor-pointer"
                   />
                   <div className=" ">
-                    <div className="hidden md:inline-block md:flex md:space-x-5 md:text-xl">
+                    <div className="hidden md:inline-block md:flex md:space-x-6 md:text-xl">
                       <p
                         onClick={() => {
                           navigate("explore/movie");
-                          setMobileState(false);
                         }}
                         className=" cursor-pointer hover:text-[#dc385f]  "
                       >
@@ -102,7 +115,6 @@ function Header() {
                       <p
                         onClick={() => {
                           navigate("/explore/movie");
-                          setMobileState(false);
                         }}
                         className=" cursor-pointer hover:text-[#dc385f] "
                       >
@@ -110,7 +122,9 @@ function Header() {
                       </p>
                     </div>
                     <p
-                      onClick={() => setMobileState(true)}
+                      onClick={() => {
+                        setMobileState(true);
+                      }}
                       className="md:hidden scale-110 cursor-pointer hover:text-[#dc385f]  "
                     >
                       <MenuIcon />

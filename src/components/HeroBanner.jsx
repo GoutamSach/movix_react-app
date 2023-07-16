@@ -38,14 +38,14 @@ function HeroBanner() {
   return (
     <>
       <div className="  ">
-        <div className="relative heroBanner lg:h-[700px] h-[400px] sm:h-[500px] md:h-[600px]  w-full -z-50 bg-[#04152d] -top-[120px] left-0">
+        <div className="relative heroBanner lg:h-[700px] h-[400px] sm:h-[500px] md:h-[600px]  w-full -z-50 bg-[#04152d]  left-0">
           <div className="opacity-50 ">
             {!loading && <Img src={bannerImage} />}
           </div>
           <div className=" absolute  bottom-0 left-0 w-full h-56 bg-gradient-to-b from-transparent from-10% to-[#04152d] to-75% "></div>
         </div>
         <ContentWrapper>
-          <div className="relative  sm:-top-[430px] md:-top-[500px]  -top-[320px]">
+          <div className="relative  sm:-top-[350px] md:-top-[420px]  -top-[320px]">
             <div className=" text-white  justify-center  flex  items-center flex-col">
               <span className="sm:text-6xl text-5xl md:text-8xl pb-3  font-semibold  ">
                 Welcome.
@@ -58,9 +58,9 @@ function HeroBanner() {
               </p>
             </div>
 
-            <div className=" sm:text-lg md:text-xl cursor-pointer text-black flex flex-row items-center justify-center mx-5 ">
+            <div className=" sm:text-lg md:text-xl cursor-pointer text-black flex flex-row items-center justify-center mx-5   ">
               <input
-                className=" outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl "
+                className=" outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl -z-10  "
                 type="text"
                 onKeyDown={searchQueryEnter}
                 onChange={(e) => {
@@ -69,7 +69,7 @@ function HeroBanner() {
                 placeholder="Search for a Movie or Tv show..."
               />
               <button
-                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5  cursor-pointer rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95"
+                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5  cursor-pointer rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95 -z-10"
                 type="submit"
                 onClick={searchQuerySubmitButton}
               >
