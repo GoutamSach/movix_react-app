@@ -13,11 +13,11 @@ function UseFetch(url) {
       .then((res) => {
         setData(res);
         // console.log(res);
-        setloading(null);
+        setloading(false);
       })
       .catch((err) => {
         setError("Something Went Wrong");
-        setloading(null);
+        setloading(false);
       });
   }, [url]);
 

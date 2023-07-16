@@ -35,23 +35,25 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-      </Routes>
-      <Routes>
-        <Route path="/:mediaType/:id" element={<Details />}></Route>
-      </Routes>
-      <Routes>
-        <Route path="/search/:query" element={<SearchResults />}></Route>
-      </Routes>
-      <Routes>
-        <Route path="/explore/:mediaType" element={<Explore />}></Route>
-      </Routes>
-      <Routes>
-        <Route path="*" element={<PageNotFound />}></Route>
-      </Routes>
-      <Footer />
+      <div className="no-scrollbar">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/:mediaType/:id" element={<Details />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/search/:query" element={<SearchResults />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/explore/:mediaType" element={<Explore />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="*" element={<PageNotFound />}></Route>
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }
