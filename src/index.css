@@ -16,3 +16,11 @@
   object-fit: cover;
   object-position: center;
 }
+
+.progressBarPadding {
+  padding: 2px;
+}
+
+.progressBarPadding text {
+  font-weight: bold;
+}

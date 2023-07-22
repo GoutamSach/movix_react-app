@@ -29,11 +29,10 @@ function Header() {
       window.removeEventListener("scroll", headerHideOnScroll);
     };
   }, [lastScroll]);
-
   return (
-    <header className="">
+    <header className=" ">
       <div
-        className={`w-full h-[60px] fixed  transform duration-300    bg-black  bg-opacity-30 backdrop-blur-sm  ${
+        className={`w-full h-[60px] fixed  transform duration-300 z-50    bg-black  bg-opacity-30 backdrop-blur-sm  ${
           headerHide && "    -translate-y-24 ease-in-out  duration-300"
         }`}
       >
@@ -41,7 +40,7 @@ function Header() {
           <div
             className={`absolute w-full z-50 h-[120px] bg-[#04152d] -top-[120px]
               
-              ${mobileState && "-top-[0px] transform duration-300"}`}
+              ${mobileState && "top-[0px] transform duration-300"}`}
           >
             <div className=" text-white">
               <ContentWrapper>

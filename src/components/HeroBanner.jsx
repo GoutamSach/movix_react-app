@@ -5,11 +5,10 @@ import { useSelector } from "react-redux";
 import { stateForgetApiConfigForHomeSlice } from "../utils/homeSlice";
 import Img from "../components/LazyImg";
 import ContentWrapper from "./ContentWrapper";
-import Header from "./Header";
 import Typewriter from "react-ts-typewriter";
 
 function HeroBanner() {
-  const [bannerText, setBannerText] = useState("");
+  // const [bannerText, setBannerText] = useState("");
 
   const [bannerImage, setBannerImage] = useState("");
   const [query, setQuery] = useState("");
@@ -58,9 +57,9 @@ function HeroBanner() {
               </p>
             </div>
 
-            <div className=" sm:text-lg md:text-xl cursor-pointer text-black flex flex-row items-center justify-center mx-5   ">
+            <div className=" sm:text-lg md:text-xl  text-black flex flex-row items-center justify-center mx-5   ">
               <input
-                className=" outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl -z-10  "
+                className=" outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl cursor-pointer  "
                 type="text"
                 onKeyDown={searchQueryEnter}
                 onChange={(e) => {
@@ -69,7 +68,7 @@ function HeroBanner() {
                 placeholder="Search for a Movie or Tv show..."
               />
               <button
-                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5  cursor-pointer rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95 -z-10"
+                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5  cursor-pointer rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95 "
                 type="submit"
                 onClick={searchQuerySubmitButton}
               >
