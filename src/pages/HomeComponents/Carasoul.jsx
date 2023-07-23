@@ -8,15 +8,15 @@ function Carasoul({ src, value, title, date, geners }) {
   return (
     <div>
       <div className=" relative">
-        <div className=" absolute z-10 bottom-4 right-4   md:inline-block  text-white ">
+        <div className=" absolute z-10 bottom-4 right-4 hidden    md:inline-block  text-white  bg-pink-600 rounded-md  text-sm px-2 pb-0.5">
           {geners}
         </div>
-        <div className=" cursor-pointer w-32 h-48  md:w-56  md:h-80 rounded-xl    overflow-hidden   mb-5 ">
+        <div className=" cursor-pointer w-32 h-48   md:w-56 mx-3.5  md:h-80 rounded-xl    overflow-hidden bg-white  mb-5 ">
           {!loading && <Img src={src} />}
         </div>
 
-        <div className=" absolute cursor-pointer   md:-bottom-4 left-2  -bottom-3">
-          <ProgressBar value={value} />
+        <div className=" absolute cursor-pointer   md:-bottom-4 left-6  -bottom-3">
+          {!loading && <ProgressBar value={value} />}
         </div>
       </div>
       <h3 className=" cursor-pointer text-white text-md md:text-xl w-32 md:w-56 line-clamp-1 overflow-hidden font-semibold ">

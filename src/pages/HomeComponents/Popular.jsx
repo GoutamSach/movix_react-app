@@ -11,19 +11,20 @@ import EastIcon from "@mui/icons-material/East";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
-function Trending() {
-  const [stateFromToggle, setStateFromToggle] = useState("day");
+function Popular() {
+  const [stateFromToggle, setStateFromToggle] = useState("movie");
   const selector = useSelector(stateForgetApiConfigForHomeSlice);
-  const { data } = UseFetch(`/trending/movie/${stateFromToggle}`);
+  const { data } = UseFetch(`/${stateFromToggle}/popular`);
   const scrollForPC = useRef();
   const naviagte = useNavigate();
   const posterPath = selector.poster;
 
   useEffect(() => {
     const result = data?.results;
+    // let mediaType = stateFromToggle;
     // console.log(result);
     // console.log(data);
-  }, [data]);
+  }, [stateFromToggle]);
 
   const movieGeners = {
     28: "Action",
@@ -49,8 +50,8 @@ function Trending() {
 
   function xyz(shiftRight) {
     if (shiftRight === false) {
-      setStateFromToggle("day");
-    } else setStateFromToggle("week");
+      setStateFromToggle("movie");
+    } else setStateFromToggle("tv");
   }
   const navigation = (direction) => {
     const position = scrollForPC.current;
@@ -74,10 +75,14 @@ function Trending() {
     >
       <ContentWrapper>
         <div className="">
-          <div className="-mt-[195px] sm:-mt-[240px] md:-mt-[290px] flex justify-between  pb-5 ">
-            <h1 className=" md:text-3xl text-2xl text-white">Trending</h1>
+          <div className="flex justify-between py-5 ">
+            <h1 className=" md:text-3xl text-2xl text-white">What's Popular</h1>
 
-            <Toggle left={`Day`} right={"Week"} xyz={xyz} />
+            <Toggle
+              xyz={xyz}
+              left={`Movie\u00A0\u00A0\u00A0`}
+              right={"TV  Shows "}
+            />
           </div>
         </div>
 
@@ -96,7 +101,7 @@ function Trending() {
             // console.log("here is the data of " + geners);
             return (
               <div
-                onClick={() => naviagte("movie/" + item.id)}
+                onClick={() => naviagte(stateFromToggle + "/" + item.id)}
                 key={item.id}
                 className=""
               >
@@ -129,4 +134,4 @@ function Trending() {
   );
 }
 
-export default Trending;
+export default Popular;

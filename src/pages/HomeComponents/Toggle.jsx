@@ -19,28 +19,28 @@ function Toggle(props) {
   }
 
   return (
-    <div className=" flex   ">
+    <div className="    ">
       <div className=" relative bg-white flex  items-center    w-min  rounded-full  font-semibold  cursor-pointer ">
-        <div className="  flex  items-center    justify-between">
+        <div className=" flex  flex-row          justify-between">
           <p
             onClick={() => searchFunction1()}
-            className="px-6 md:py-3 md:px-10 py-1  "
+            className="md:px-6 px-[24px] text-xs md:text-lg  md:text-base   md:py-2  py-1  "
           >
-            Day
+            {props.left}
           </p>
           <p
             onClick={() => searchFunction2()}
-            className="px-6 md:py-3 md:px-10 py-1  "
+            className="md:px-6 px-5 px-[22px] md:py-2  text-xs md:text-base    py-1  whitespace-nowrap  "
           >
-            Week
+            {props.right}
           </p>
         </div>
         <button
-          className={`text-white bg-gradient-to-r from-[#f79a04] to-[#dc395e] hover:bg-gradient-to-br px-6 md:py-3  cursor-pointer rounded-full  md:px-10   py-1 left-0 text-center absolute duration-300 ${
-            shiftRight && " left-[79px] md:left-[114px]  duration-300 "
+          className={`forAnimation text-white bg-gradient-to-r from-[#f79a04] overflow-hidden to-[#dc395e] hover:bg-gradient-to-br text-xs  md:text-base   cursor-pointer rounded-full px-[21px] md:py-2    py-1  absolute  translate-x-0     duration-300    whitespace-nowrap ${
+            shiftRight && "     translate-x-full    duration-300 "
           } `}
         >
-          {shiftRight ? "Week " : "Day \xA0  "}
+          {shiftRight ? props.right : props.left}
         </button>
       </div>
     </div>

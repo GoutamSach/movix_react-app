@@ -11,10 +11,10 @@ import EastIcon from "@mui/icons-material/East";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
-function Trending() {
-  const [stateFromToggle, setStateFromToggle] = useState("day");
+function TopRated() {
+  const [stateFromToggle, setStateFromToggle] = useState("movie");
   const selector = useSelector(stateForgetApiConfigForHomeSlice);
-  const { data } = UseFetch(`/trending/movie/${stateFromToggle}`);
+  const { data } = UseFetch(`/${stateFromToggle}/top_rated`);
   const scrollForPC = useRef();
   const naviagte = useNavigate();
   const posterPath = selector.poster;
@@ -49,8 +49,8 @@ function Trending() {
 
   function xyz(shiftRight) {
     if (shiftRight === false) {
-      setStateFromToggle("day");
-    } else setStateFromToggle("week");
+      setStateFromToggle("movie");
+    } else setStateFromToggle("tv");
   }
   const navigation = (direction) => {
     const position = scrollForPC.current;
@@ -74,10 +74,15 @@ function Trending() {
     >
       <ContentWrapper>
         <div className="">
-          <div className="-mt-[195px] sm:-mt-[240px] md:-mt-[290px] flex justify-between  pb-5 ">
-            <h1 className=" md:text-3xl text-2xl text-white">Trending</h1>
-
-            <Toggle left={`Day`} right={"Week"} xyz={xyz} />
+          <div className="flex justify-between items-center  py-5 ">
+            <h1 className=" md:text-3xl text-2xl  text-white">Top Rated</h1>
+            <div className="">
+              <Toggle
+                xyz={xyz}
+                left={`Movie\u00A0\u00A0\u00A0`}
+                right={"TV  Shows "}
+              />
+            </div>
           </div>
         </div>
 
@@ -96,7 +101,7 @@ function Trending() {
             // console.log("here is the data of " + geners);
             return (
               <div
-                onClick={() => naviagte("movie/" + item.id)}
+                onClick={() => naviagte(stateFromToggle + "/" + item.id)}
                 key={item.id}
                 className=""
               >
@@ -129,4 +134,4 @@ function Trending() {
   );
 }
 
-export default Trending;
+export default TopRated;
