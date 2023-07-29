@@ -19,13 +19,6 @@ function Popular() {
   const naviagte = useNavigate();
   const posterPath = selector.poster;
 
-  useEffect(() => {
-    const result = data?.results;
-    // let mediaType = stateFromToggle;
-    // console.log(result);
-    // console.log(data);
-  }, [stateFromToggle]);
-
   const movieGeners = {
     28: "Action",
     12: "Adventure",
@@ -98,7 +91,6 @@ function Popular() {
             );
             const geners = movieGeners[item.genre_ids[0]];
 
-            // console.log("here is the data of " + geners);
             return (
               <div
                 onClick={() => naviagte(stateFromToggle + "/" + item.id)}

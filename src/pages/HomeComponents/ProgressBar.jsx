@@ -2,10 +2,10 @@ import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-function ProgressBar({ value }) {
+function ProgressBar({ value, textColor, trailColor }) {
   return (
     <div className=" ">
-      <div className=" progressBarPadding md:w-12 md:h-12 w-8 h-8 bg-white rounded-full  `    ">
+      <div className="       ">
         <CircularProgressbar
           maxValue={10}
           minValue={0}
@@ -23,10 +23,10 @@ function ProgressBar({ value }) {
 
               transformOrigin: "center center",
             },
-            trail: { stroke: "white" },
+            trail: { stroke: `${trailColor}` },
             text: {
               // Text color
-              fill: "black",
+              fill: `${textColor}`,
               // Text size
               fontSize: "38px",
             },

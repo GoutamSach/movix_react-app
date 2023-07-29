@@ -17,10 +17,9 @@
   object-position: center;
 }
 
-.progressBarPadding {
-  padding: 2px;
-}
-
-.progressBarPadding text {
-  font-weight: bold;
+.detailPosterImage img {
+  width: 640px;
+  height: 500px;
+  object-fit: fill;
+  object-position: center;
 }

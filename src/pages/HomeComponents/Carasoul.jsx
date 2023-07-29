@@ -15,14 +15,22 @@ function Carasoul({ src, value, title, date, geners }) {
           {!loading && <Img src={src} />}
         </div>
 
-        <div className=" absolute cursor-pointer   md:-bottom-4 left-6  -bottom-3">
-          {!loading && <ProgressBar value={value} />}
+        <div className=" absolute cursor-pointer   md:-bottom-4 left-6   -bottom-3">
+          {!loading && (
+            <div className=" font-semibold  txtBlack p-0.5 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full ">
+              <ProgressBar
+                value={value}
+                textColor={"black"}
+                trailColor={"white"}
+              />
+            </div>
+          )}
         </div>
       </div>
-      <h3 className=" cursor-pointer text-white text-md md:text-xl w-32 md:w-56 line-clamp-1 overflow-hidden font-semibold ">
+      <h3 className=" cursor-pointer text-white text-md md:text-xl w-32 md:w-56 line-clamp-1  overflow-hidden font-semibold ml-5 ">
         {title}
       </h3>
-      <p className=" cursor-pointer text-gray-400 font-semibold text-[13px] my-2 ">
+      <p className=" cursor-pointer text-gray-400 font-semibold text-[13px] ml-5 my-2 ">
         {date}
       </p>
     </div>

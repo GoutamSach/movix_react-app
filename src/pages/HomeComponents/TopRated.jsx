@@ -19,11 +19,11 @@ function TopRated() {
   const naviagte = useNavigate();
   const posterPath = selector.poster;
 
-  useEffect(() => {
-    const result = data?.results;
-    // console.log(result);
-    // console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  // const result = data?.results;
+  // console.log(result);
+  // console.log(data);
+  // }, [data]);
 
   const movieGeners = {
     28: "Action",

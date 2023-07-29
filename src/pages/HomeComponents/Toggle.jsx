@@ -24,7 +24,7 @@ function Toggle(props) {
         <div className=" flex  flex-row          justify-between">
           <p
             onClick={() => searchFunction1()}
-            className="md:px-6 px-[24px] text-xs md:text-lg  md:text-base   md:py-2  py-1  "
+            className="md:px-5 px-[24px] text-xs md:text-lg  md:text-base   md:py-2  py-1  "
           >
             {props.left}
           </p>
@@ -36,7 +36,7 @@ function Toggle(props) {
           </p>
         </div>
         <button
-          className={`forAnimation text-white bg-gradient-to-r from-[#f79a04] overflow-hidden to-[#dc395e] hover:bg-gradient-to-br text-xs  md:text-base   cursor-pointer rounded-full px-[21px] md:py-2    py-1  absolute  translate-x-0     duration-300    whitespace-nowrap ${
+          className={`forAnimation text-white bg-gradient-to-r from-[#f79a04] overflow-hidden to-[#dc395e] hover:bg-gradient-to-br text-xs  md:text-base   cursor-pointer rounded-full px-[21px] md:py-[10px]    py-1  absolute  translate-x-0     duration-300    whitespace-nowrap ${
             shiftRight && "     translate-x-full    duration-300 "
           } `}
         >
