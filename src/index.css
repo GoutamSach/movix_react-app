@@ -18,8 +18,9 @@
 }
 
 .detailPosterImage img {
-  width: 640px;
-  height: 500px;
+  width: 780px;
+  height: 600px;
+  border-radius: 15px;
   object-fit: fill;
   object-position: center;
 }
