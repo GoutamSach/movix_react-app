@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
-import SearchResults from "./pages/SearchResults";
+// import SearchResults from "./pages/HomeComponents/search/SearchResults";
 import Explore from "./pages/Explore";
 import PageNotFound from "./pages/PageNotFound";
 import Header from "./components/Header";
@@ -36,23 +36,21 @@ function App() {
   return (
     <>
       <div className="no-scrollbar">
+        {/* <BrowserRouter> */}
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/:mediaType/:id" element={<Details />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/search/:query" element={<SearchResults />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/explore/:mediaType" element={<Explore />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="*" element={<PageNotFound />}></Route>
+          <Route exact path="/" element={<Home />} />
+
+          <Route exact path="/:mediaType/:id" element={<Details />} />
+
+          {/* <Route exact path="/search/:query" element={<SearchResults />} /> */}
+
+          <Route exact path="/explore/:mediaType" element={<Explore />} />
+
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
+        {/* </BrowserRouter> */}
       </div>
     </>
   );

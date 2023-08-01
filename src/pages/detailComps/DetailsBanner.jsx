@@ -13,20 +13,12 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import VideoPopup from "./videopopup/VideoPopup";
 
-function DetailsBanner({ credits }) {
+function DetailsBanner({ credits, videos }) {
   const [videoShow, setvideoShow] = useState(false);
   const [videoId, setvideoId] = useState(null);
   const { id, mediaType } = useParams();
   const selector = useSelector(stateForgetApiConfigForHomeSlice);
-  const { data, loading } = UseFetch(`/${mediaType}/${id}`);
-  // const { data: credits } = UseFetch(`/${mediaType}/${id}/credits`);
-  const { data: videos } = UseFetch(`/${mediaType}/${id}/videos`);
-
-  // useEffect(() => {
-  // const result = videos?.results?.[0].key;
-  // console.log(result);
-  // console.log(data?.backdrop_path);
-  // }, [data]);
+  const { data, loading, error } = UseFetch(`/${mediaType}/${id}`);
 
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
@@ -36,9 +28,9 @@ function DetailsBanner({ credits }) {
 
   return (
     <div>
-      {!loading ? (
+      {!loading && !error ? (
         <>
-          {!!data && (
+          {data && (
             <>
               <div className="relative heroBanner lg:h-[700px] h-[400px] sm:h-[500px] md:h-[600px]  w-full -z-50 bg-[#04152d]  left-0">
                 <div className="opacity-20 ">
@@ -70,7 +62,7 @@ function DetailsBanner({ credits }) {
                         <p className=" text-gray-500 text-sm font-semibold italic  md:text-lg">
                           {data.tagline}
                         </p>
-                        {data?.genres.map((item) => {
+                        {data?.genres?.map((item) => {
                           // console.log(data);
 
                           return (
@@ -104,12 +96,12 @@ function DetailsBanner({ credits }) {
                             <div className="video-overlay"></div>
 
                             <p className="text text-white pl-16 md:text-3xl text-xl -mt-4  cursor-pointer ">
-                              Watch Later
+                              Watch Now
                             </p>
                           </div>
                         </div>
                         <div className=" text-white">
-                          <h2 className=" text-xl md:text-2xl">Overview</h2>
+                          <h2 className=" text-xl md:text-3xl">Overview</h2>
                           <p className=" text-sm md:text-lg py-2">
                             {data?.overview}
                           </p>
@@ -145,7 +137,7 @@ function DetailsBanner({ credits }) {
                             Director:
                           </p>{" "}
                           {credits?.crew
-                            .filter((f) => f.job === "Director")
+                            ?.filter((f) => f.job === "Director")
                             .map((i) => {
                               return (
                                 <p

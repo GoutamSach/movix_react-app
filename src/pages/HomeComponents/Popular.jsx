@@ -90,10 +90,11 @@ function Popular() {
               "MMM D, YYYY"
             );
             const geners = movieGeners[item.genre_ids[0]];
-
+            const mediaType = stateFromToggle;
+            const id = item.id;
             return (
               <div
-                onClick={() => naviagte(stateFromToggle + "/" + item.id)}
+                onClick={() => naviagte(mediaType + "/" + id)}
                 key={item.id}
                 className=""
               >

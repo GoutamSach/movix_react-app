@@ -13,6 +13,7 @@ function Header() {
   const navigate = useNavigate();
 
   function headerHideOnScroll() {
+    setHeaderHide(false);
     if (window.scrollY > 200) {
       if (window.scrollY > lastScroll) {
         setHeaderHide(true);
@@ -64,17 +65,17 @@ function Header() {
                 <div className=" ">
                   <div className="   flex flex-col  text-lg font-semibold md:text-xl">
                     <p
-                      onClick={() => {
-                        navigate("explore/movie");
-                      }}
+                      // onClick={() => {
+                      // navigate("explore/movie");
+                      // }}
                       className=" cursor-pointer hover:text-[#dc385f]  "
                     >
                       Movies
                     </p>
                     <p
-                      onClick={() => {
-                        navigate("explore/movie");
-                      }}
+                      // onClick={() => {
+                      // navigate("explore/movie");
+                      // }}
                       className=" cursor-pointer hover:text-[#dc385f] "
                     >
                       TV Shows
@@ -104,17 +105,17 @@ function Header() {
                   <div className=" ">
                     <div className="hidden md:inline-block md:flex md:space-x-6 md:text-xl">
                       <p
-                        onClick={() => {
-                          navigate("explore/movie");
-                        }}
+                        // onClick={() => {
+                        // navigate("explore/movie");
+                        // }}
                         className=" cursor-pointer hover:text-[#dc385f]  "
                       >
                         Movies
                       </p>
                       <p
-                        onClick={() => {
-                          navigate("/explore/movie");
-                        }}
+                        // onClick={() => {
+                        // navigate("/explore/movie");
+                        // }}
                         className=" cursor-pointer hover:text-[#dc385f] "
                       >
                         TV Shows

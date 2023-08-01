@@ -98,10 +98,11 @@ function TopRated() {
             );
             const geners = movieGeners[item.genre_ids[0]];
 
-            // console.log("here is the data of " + geners);
+            const mediaType = stateFromToggle;
+            const id = item.id;
             return (
               <div
-                onClick={() => naviagte(stateFromToggle + "/" + item.id)}
+                onClick={() => naviagte(mediaType + "/" + id)}
                 key={item.id}
                 className=""
               >

@@ -26,18 +26,20 @@ function HeroBanner() {
 
   const searchQuerySubmitButton = () => {
     if (query === "") {
-    } else navigate(`/search/${query}`);
+    } else {
+    }
+    // navigate(`/search/${query}`);
   };
-  const searchQueryEnter = (e) => {
-    if (e.key === "Enter") {
-      navigate(`/search/${query}`);
-    } else;
-  };
+  // const searchQueryEnter = (e) => {
+  //   if (e.key === "Enter") {
+  //     navigate(`/search/${query}`);
+  //   } else;
+  // };
 
   return (
     <>
       <div className="  ">
-        <div className="relative heroBanner lg:h-[700px] h-[400px] sm:h-[500px] md:h-[600px]  w-full -z-50 bg-[#04152d]  left-0">
+        <div className="relative heroBanner   lg:h-[700px] h-[400px] sm:h-[500px] md:h-[600px]  w-full -z-50 bg-[#04152d]  left-0">
           <div className="opacity-50 ">
             {!loading && <Img src={bannerImage} />}
           </div>
@@ -57,18 +59,18 @@ function HeroBanner() {
               </p>
             </div>
 
-            <div className=" sm:text-lg md:text-xl  text-black flex flex-row items-center justify-center mx-5   ">
+            <div className="  sm:text-lg opacity-0 md:text-xl relative   text-black flex flex-row items-center justify-center mx-5   ">
               <input
-                className=" outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl cursor-pointer  "
+                className="  cursor-default    outline-none py-2.5 sm:py-4 md:py-5 rounded-l-full w-full px-5  max-w-3xl   "
                 type="text"
-                onKeyDown={searchQueryEnter}
+                // onKeyDown={searchQueryEnter}
                 onChange={(e) => {
                   setQuery(e.target.value);
                 }}
                 placeholder="Search for a Movie or Tv show..."
               />
               <button
-                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5  cursor-pointer rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95 "
+                className="text-white bg-gradient-to-r from-[#f79a04]  to-[#dc395e] hover:bg-gradient-to-br pr-8 md:py-5   rounded-r-full md:pr-10 md:pl-12 pl-10 py-2.5 sm:py-4 text-center active:scale-95 cursor-default  "
                 type="submit"
                 onClick={searchQuerySubmitButton}
               >
