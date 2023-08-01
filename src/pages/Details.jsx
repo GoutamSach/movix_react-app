@@ -23,7 +23,7 @@ function Details() {
       setRenderStart(true);
     }
     // const result = credits?.results;
-    console.log(renderStart);
+    // console.log(renderStart);
     // console.log(data?.backdrop_path);
   }, [data]);
 

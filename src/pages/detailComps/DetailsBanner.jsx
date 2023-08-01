@@ -54,7 +54,7 @@ function DetailsBanner({ credits, videos }) {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:-mt-[610px] md:-mt-[510px] sm:-mt-96 -mt-[275px] md:pl-8">
+                    <div className="lg:-mt-[610px] md:-mt-[510px] sm:-mt-96 -mt-[155px] md:pl-8">
                       <div className="   ml-2">
                         <h1 className=" text-white text-2xl md:text-4xl font-semibold ">
                           {data.original_title}
